@@ -6,52 +6,6 @@
 
 <!-- ![Screenshot](https://cloud.githubusercontent.com/assets/512416/4584449/e6c154a0-4ffa-11e4-81a8-a7e5f8689dc5.PNG) -->
 
-## Version 2
-
-Version 2 of Golden Layout is now available in the main repository and will be published to NPM shortly.
-
-Moving to version 2 is a large change to Golden Layout.  These changes can be summarised as:
-
-1. The code has been ported to TypeScript
-1. The primary focus of maintenance will be on reliability.
-
-### Version 2 Status
-
-Version 2.0 is now ready for production. However before migrating from Version it is **important** to review the following:
-
-#### Dropped Features
-
-As part of the port, the code base was significantly refactored.  A number of features have been dropped from the version 1.0 as their implementation was not robust enough to meet the reliability requirements of version 2.  The dropped features are:
-
-* **React Support** - The [FlexLayout](https://github.com/caplin/FlexLayout) library has been designed for React components.  We recommend developers using React to use this library instead of Golden Layout.
-* **Nested Stacks** - While it was possible to create layouts with Nested Stacks in version 1, the implementation was incomplete.  Due to the large amount of work that would have been necessary to fix the implementation, it was decided instead to drop this feature. Version 2 explicitly does not allow nested stacks.
-* [**Internal and Public API**](#public-and-internal-apis) - All classes, interfaces, functions and properties are marked as either `internal` or `public`. Only `public` APIs are generally available to applications.
-* **Legacy Browsers** - The library will now only target modern browsers (see package.json for browserlist configuration)
-* **Native JavaScript modules only** - No support is available for CommonJS or other JavaScript module formats.
-* **No JQuery** - JQuery is no longer used in Golden Layout (many would consider this as an added feature)
-
-#### Features implemented but not ready for production
-
-Some features have been ported to TypeScript but are not yet ready for production.  These features are:
-
-* **Popouts** - The coding for this has been completed however testing still needs to be carried out.
-* **Touch Support** - Improvements are required in accessing browser Touch/Drag APIs.  Also some conceptual aspects of the implementation need to be improved.  These will be carried out in a future release.
-* **Some API functions** - While most API functions have been ported, not all have been tested.  The APIs used in the Test Application (both demo app and Angular example) have been tested and are ready for production.  Other API functions should work but please take this warning into account.
-
-### Migration
-
-The Version 1 to Version 2 migration guide is available [here](#migration).
-
-## Features
-
-* ~~Full touch support~~
-* ~~Native popup windows~~
-* Completely themeable
-* Comprehensive API
-* Powerful persistence
-* Works in modern browsers (Firefox, Chrome)
-* Reponsive design
-
 ## Installation / Usage
 
 ### Library
@@ -98,10 +52,57 @@ A sample Angular application using Golden Layout is available.  The source can b
 
 After installing the source, the app can be built and started with the standard build and start scripts.
 
+## Version 2
+
+Version 2 of Golden Layout is now available.
+
+Moving to version 2 is a large change to Golden Layout.  These changes can be summarised as:
+
+1. The code has been ported to TypeScript
+1. The primary focus of maintenance will be on reliability
+
+### Version 2 Status
+
+Version 2.0 is now ready for production. However before migrating from Version it is **important** to review the following:
+
+#### Dropped Features
+
+As part of the port, the code base was significantly refactored.  A number of features have been dropped from the version 1.0 as their implementation was not robust enough to meet the reliability requirements of version 2.  The dropped features are:
+
+* **React Support** - The [FlexLayout](https://github.com/caplin/FlexLayout) library has been designed for React components.  We recommend developers using React to use this library instead of Golden Layout.
+* **Nested Stacks** - While it was possible to create layouts with Nested Stacks in version 1, the implementation was incomplete.  Due to the large amount of work that would have been necessary to fix the implementation, it was decided instead to drop this feature. Version 2 explicitly does not allow nested stacks.
+* [**Internal and Public API**](#public-and-internal-apis) - All classes, interfaces, functions and properties are marked as either `internal` or `public`. Only `public` APIs are generally available to applications.
+* **Legacy Browsers** - The library will now only target modern browsers (see package.json for browserlist configuration)
+* **Native JavaScript modules only** - No support is available for CommonJS or other JavaScript module formats.
+* **No JQuery** - JQuery is no longer used in Golden Layout (many would consider this as an added feature)
+
+#### Features implemented but not ready for production
+
+Some features have been ported to TypeScript but are not yet ready for production.  These features are:
+
+* **Popouts** - The coding for this has been completed however testing still needs to be carried out.
+* **Touch Support** - Improvements are required in accessing browser Touch/Drag APIs.  Also some conceptual aspects of the implementation need to be improved.  These will be carried out in a future release.
+* **Some API functions** - While most API functions have been ported, not all have been tested.  The APIs used in the Test Application (both demo app and Angular example) have been tested and are ready for production.  Other API functions should work but please take this warning into account.
+
+### Migration
+
+The Version 1 to Version 2 migration guide is available [here](#migration).
+
+## Features
+
+* ~~Full touch support~~
+* ~~Native popup windows~~
+* Completely themeable
+* Comprehensive API
+* Powerful persistence
+* Works in modern browsers (Firefox, Chrome)
+* Reponsive design
+
+
 ## Migration
 Version 2 has been re-written in TypeScript. A general code cleanup has been carried out as part of this re-write.  
 
-Also, some changes have been made to the GoldenLayout API.  Where possible, backwards compatibility has been retained,however functions and properties kept for backwards compatibility have been marked as deprecated. It is strongly recommend applications be migrated to the new API.
+Also, some changes have been made to the GoldenLayout API.  Where possible, backwards compatibility has been retained, however functions and properties kept for backwards compatibility have been marked as deprecated. It is strongly recommend applications be migrated to the new API.
 
 The API changes include 2 new events to support creation of components: `getComponentEvent` and `releaseComponentEvent`. With these events, it is far easier to integrate GoldenLayout into frameworks.  This example application demonstrates how to integrate GoldenLayout into Angular:
   [https://github.com/golden-layout/golden-layout-ng-app](https://github.com/golden-layout/golden-layout-ng-app)
